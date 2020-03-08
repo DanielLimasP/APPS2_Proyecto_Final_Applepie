@@ -6,13 +6,9 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface IMyService {
-    @POST("signup")
-    @FormUrlEncoded
-    Observable<String> signupUser(@Field("email") String email,
-                                  @Field("name") String name,
-                                  @Field("password") String password);
     @POST("login")
     @FormUrlEncoded
     Observable<String> loginUser(@Field("email") String email,
-                                 @Field("password") String password);
+                                  @Field("name") String name,
+                                  @Field("google_id") String google_id);
 }
