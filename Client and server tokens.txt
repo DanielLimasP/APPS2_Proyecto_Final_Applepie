@@ -1,0 +1,5 @@
+Client ID
+441937733855-j2078bsossmn09abc6ak2mjt15ijhk0l.apps.googleusercontent.com
+
+Client Secret
+rgVeTiEX1hH7OzQcTX_LFLr6
