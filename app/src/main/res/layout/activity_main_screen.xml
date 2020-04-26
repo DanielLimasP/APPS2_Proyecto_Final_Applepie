@@ -58,4 +58,10 @@
         android:background="@color/colorPrimary"
         android:textColor="#fff"/>
 
+    <Button
+        android:id="@+id/btnQR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </RelativeLayout>
