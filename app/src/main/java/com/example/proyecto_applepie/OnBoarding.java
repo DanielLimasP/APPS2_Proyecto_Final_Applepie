@@ -1,19 +1,16 @@
-package com.example.proyecto_applepie.OnBoard;
+package com.example.proyecto_applepie;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import android.os.Bundle;
+import android.text.Html;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-        import android.os.Bundle;
-        import android.text.Html;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
-
-        import com.example.proyecto_applepie.OnBoard.SliderAdapter;
-        import com.example.proyecto_applepie.R;
-
-public class OnBoardScreen extends AppCompatActivity {
+public class OnBoarding extends AppCompatActivity {
 
     private ViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
@@ -25,11 +22,11 @@ public class OnBoardScreen extends AppCompatActivity {
     private Button mBackBtn;
 
     private int CurrentPage;
-
+    private int auxCurrentPage = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_on_boarding);
 
         mSlideViewPager = (ViewPager)findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout)findViewById(R.id.dotsLayout);
@@ -48,6 +45,10 @@ public class OnBoardScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mSlideViewPager.setCurrentItem(CurrentPage + 1);
+                auxCurrentPage++;
+                if(auxCurrentPage == dots.length){
+                    finish();
+                }
             }
         });
 
@@ -55,6 +56,7 @@ public class OnBoardScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mSlideViewPager.setCurrentItem(CurrentPage - 1);
+                auxCurrentPage--;
             }
         });
     }
@@ -89,6 +91,7 @@ public class OnBoardScreen extends AppCompatActivity {
 
             CurrentPage = position;
 
+
             if(position == 0){
                 mNextBtn.setEnabled(true);
                 mBackBtn.setEnabled(false);
@@ -101,6 +104,7 @@ public class OnBoardScreen extends AppCompatActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mNextBtn.setText("Finish");
                 mBackBtn.setText("Back");
+
             }else{
                 mNextBtn.setEnabled(true);
                 mBackBtn.setEnabled(true);

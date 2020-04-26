@@ -1,4 +1,4 @@
-package com.example.proyecto_applepie.OnBoard;
+package com.example.proyecto_applepie;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,15 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.proyecto_applepie.R;
-
 public class SliderAdapter extends PagerAdapter {
-
     Context context;
     LayoutInflater layoutInflater;
 
     public SliderAdapter(Context context){
-      this.context = context;
+        this.context = context;
     }
 
     // Arrays or something
