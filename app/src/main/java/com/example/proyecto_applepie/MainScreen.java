@@ -52,8 +52,8 @@ public class MainScreen extends AppCompatActivity {
 
         sign_out = findViewById(R.id.log_out);
         nameTV = findViewById(R.id.name);
-        emailTV = findViewById(R.id.email);
-        idTV = findViewById(R.id.id);
+        //emailTV = findViewById(R.id.email);
+        //idTV = findViewById(R.id.id);
         photoIV = findViewById(R.id.photo);
 
         // Conf sign-in para pedir el ID del usuario, su direccion de correo e informacion de perfil basica
@@ -75,9 +75,9 @@ public class MainScreen extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
-            nameTV.setText("Name: "+personName);
-            emailTV.setText("Email: "+personEmail);
-            idTV.setText("ID: "+personId);
+            nameTV.setText(personName);
+            //emailTV.setText("Email: "+personEmail);
+            //idTV.setText("ID: "+personId);
             Glide.with(this).load(personPhoto).into(photoIV);
 
 
