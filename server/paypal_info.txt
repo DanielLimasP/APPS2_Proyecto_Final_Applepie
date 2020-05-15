@@ -1,0 +1,39 @@
+qr-app-2
+
+Sandbox account:
+sb-rwn291569136@personal.example.com ---> Client
+sb-miveo1577166@business.example.com ---> Merchant
+
+An Access token:
+access_token$sandbox$z7sj8ydg8zp2pz22$b19fac7e010f58ee14f02c3b3ce957f9
+
+Client account:
+Client ID:
+	Abq-5PUDnOcgIbW_CrLqnwN2IVFf5Nzh5XVY_WIKb2itTAa4GtZ0diUUzCVIqzcK3NhXUJIFypO5SK-3-
+Secret:
+	EGe0vYDAaziSuGXofoxUA2eAZqAy6rV39nPLunI9LqOzyKMxIWWOzqWHaQRxwuDJaAVU1vxi9O-K4474
+
+Merchant account:
+Client ID:
+	AVyuco_-Jtq4L_0gwxOdveN8pY54REgACDQRz0DYDVBtt3YbKeyl96G8hmgzz7OIV9XhOIZSIry3geal
+Secret:
+	EH7CMrlK2_STQUXIIvtl2-dgRuE_C3TRB_XdVNyhyTNtZrdLuVzWowVA-xJ13-mw-x5E4aXk2gSlH32T
+
+Access Token (Could get deprecated):
+-Get it calling this URL
+https://api.sandbox.paypal.com/v1/oau make 
+	-Go to auth tab and select basic auth type
+	-Client ID = Username
+	-Secret = Password
+	-On the body, select x-www-form-urlencoded
+	-Type grant_type in the key box and client_credentials in the value box
+
+deprecated token by 27-04-2020
+A21AAGvf6oYssIKAFOiVYkaJf_Ljw2GOGN2NLcdQQnBnIXlSUEnxdnh75MZ4Ptly528o9sjNB5_jgB0s5EtI1KzYj3yRpt40g
+
+
+
+
+
+
+
