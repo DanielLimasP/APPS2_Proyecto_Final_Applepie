@@ -89,7 +89,7 @@ public class OnBoarding extends AppCompatActivity {
             addDotsIndicator(position);
 
             CurrentPage = position;
-
+            auxCurrentPage = position-1;
 
             if(position == 0){
                 mNextBtn.setEnabled(true);

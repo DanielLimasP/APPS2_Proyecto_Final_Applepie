@@ -33,7 +33,7 @@ MongoClient.connect(local, {useUnifiedTopology: true}, function(err, client){
         'name': name,
         'id': google_id 
       };
-      var db = client.db('paypal_qr_app');
+      var db = client.db('paypal-qr-app');
       db.collection('user')
         .find({'email':email}).count(function(err, number){
           if(number != 0){

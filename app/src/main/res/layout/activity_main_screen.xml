@@ -23,7 +23,7 @@
             android:layout_width="49dp"
             android:layout_height="57dp"
             android:layout_gravity="center"
-            android:background="@mipmap/ic_launcher_round" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/name"

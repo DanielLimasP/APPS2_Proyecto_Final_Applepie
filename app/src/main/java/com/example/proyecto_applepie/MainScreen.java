@@ -35,8 +35,6 @@ public class MainScreen extends AppCompatActivity {
     Button sign_out;
     TextView nameTV;
     Intent onBoardIntent;
-    TextView emailTV;
-    TextView idTV;
     ImageView photoIV;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;
@@ -46,38 +44,31 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        //Init servicio
+        //Init service
         Retrofit retrofitClient = RetrofitClient.getInstance();
         iMyService = retrofitClient.create(IMyService.class);
 
         sign_out = findViewById(R.id.log_out);
         nameTV = findViewById(R.id.name);
-        //emailTV = findViewById(R.id.email);
-        //idTV = findViewById(R.id.id);
         photoIV = findViewById(R.id.photo);
 
-        // Conf sign-in para pedir el ID del usuario, su direccion de correo e informacion de perfil basica
-        // el ID y dicha informacion estan incluidas en DEFAULT_SIGN_IN.
+        // Conf signin options using google email
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-        // Crear un GoogleSignInClient con las opciones especificadas en gso
+        // Create google sign in client using the options specified at gso
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(MainScreen.this);
         if (acct != null) {
 
             String personName = acct.getDisplayName();
-            String personGivenName = acct.getGivenName();
-            String personFamilyName = acct.getFamilyName();
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
             nameTV.setText(personName);
-            //emailTV.setText("Email: "+personEmail);
-            //idTV.setText("ID: "+personId);
             Glide.with(this).load(personPhoto).into(photoIV);
 
 
@@ -91,7 +82,7 @@ public class MainScreen extends AppCompatActivity {
         });
     }
 
-    // Funcion de signOut
+    // Signout function
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -104,7 +95,7 @@ public class MainScreen extends AppCompatActivity {
                 });
     }
 
-    // Funcion de signUp que se llamara cada vez que el usuario acceda a la aplicacion
+    // Signup function that gets called each time the users gets access to the app
     private void loginUser(String email, String name, String google_id) {
         compositeDisposable.add(iMyService.loginUser(email, name, google_id)
                 .subscribeOn(Schedulers.io())
