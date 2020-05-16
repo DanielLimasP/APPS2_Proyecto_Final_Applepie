@@ -141,7 +141,7 @@ public class MainScreen extends AppCompatActivity {
                 }
             }
         });
-        ft.replace(R.id.fragmentLayout, gen);
+        ft.replace(R.id.fragmentLayout1, gen);
         ft.addToBackStack("stack");
         ft.commit();
     }

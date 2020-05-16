@@ -26,7 +26,6 @@ public class Generator extends Fragment {
     EditText qrEdtTxt;
     Button btnGenerate;
     ImageView imgQrDisplay;
-    LinearLayout ll;
 
     public Generator() {
         // Required empty public constructor
@@ -38,6 +37,9 @@ public class Generator extends Fragment {
         // Inflate the layout for this fragment
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_generator, container, false);
 
+        qrEdtTxt = ll.findViewById(R.id.qrEdtTxt);
+        btnGenerate = ll.findViewById(R.id.btnGenerate);
+        imgQrDisplay = ll.findViewById(R.id.imgQrDisplay);;
         btnGenerate = ll.findViewById(R.id.btnGenerate);
         btnGenerate.setOnClickListener(clickListener);
 

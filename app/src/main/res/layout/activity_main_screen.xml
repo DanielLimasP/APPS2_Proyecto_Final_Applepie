@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -13,7 +14,7 @@
 
 
     <LinearLayout
-        android:id="@+id/fragmentLayout"
+        android:id="@+id/fragmentLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="9.9"
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:layout_gravity="center"
             android:gravity="center|center_horizontal"
             android:orientation="horizontal">
 
@@ -47,26 +49,28 @@
 
             <Button
                 android:id="@+id/log_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_gravity="top"
+                android:layout_gravity="center|top"
                 android:layout_margin="10sp"
                 android:background="@drawable/roundbtn"
                 android:text="Sign out"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/btnOnboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center|top"
                 android:layout_margin="10sp"
                 android:background="@drawable/roundbtn"
                 android:onClick="launchOnboard"
                 android:text="OnBoard"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="10sp" />
 
         </LinearLayout>
 
