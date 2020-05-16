@@ -9,6 +9,9 @@ import android.os.Bundle;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,9 +40,7 @@ public class MainScreen extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
 
-    Button sign_out;
     TextView nameTV;
-    Intent onBoardIntent;
     ImageView photoIV;
     FragmentTransaction ft;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -54,7 +55,6 @@ public class MainScreen extends AppCompatActivity {
         Retrofit retrofitClient = RetrofitClient.getInstance();
         iMyService = retrofitClient.create(IMyService.class);
 
-        sign_out = findViewById(R.id.log_out);
         nameTV = findViewById(R.id.name);
         photoIV = findViewById(R.id.photo);
 
@@ -76,27 +76,6 @@ public class MainScreen extends AppCompatActivity {
             nameTV.setText(personName);
             Glide.with(this).load(personPhoto).into(photoIV);
         }
-
-        sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signOut();
-            }
-        });
-
-    }
-
-    // Signout function
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainScreen.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainScreen.this, MainActivity.class));
-                        finish();
-                    }
-                });
     }
 
     // Signup function that gets called each time the users gets access to the app
@@ -112,17 +91,45 @@ public class MainScreen extends AppCompatActivity {
                 }));
     }
 
-    public void launchOnboard(View v){
-        onBoardIntent = new Intent(MainScreen.this, OnBoarding.class);
-        startActivity(onBoardIntent);
-    }
-
     @Override
     protected void onStop() {
         compositeDisposable.clear();
         super.onStop();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.mnSettings){
+            Intent inSettings = new Intent(this, SettingsActivity.class);
+            startActivity(inSettings);
+            return true;
+        // Option to launch onboard screen from the settings menu
+        }else if(item.getItemId() == R.id.mnOnboard){
+            Intent onBoardIntent = new Intent(MainScreen.this, OnBoarding.class);
+            startActivity(onBoardIntent);
+            return true;
+        }else if(item.getItemId() == R.id.mnLogout){
+            mGoogleSignInClient.signOut()
+                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(MainScreen.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainScreen.this, MainActivity.class));
+                            finish();
+                        }
+                    });
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Method to access the QR Generator Fragment
     public void goToGenerator(View view){
         final Generator gen = new Generator();
         ft = getSupportFragmentManager().beginTransaction();
@@ -146,6 +153,7 @@ public class MainScreen extends AppCompatActivity {
         ft.commit();
     }
 
+    // Method to access the QR Reader Fragment
     public void goToReader(View view){
 
     }

@@ -50,7 +50,7 @@
             <Button
                 android:id="@+id/log_out"
                 android:layout_width="60dp"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center|top"
@@ -63,7 +63,7 @@
             <Button
                 android:id="@+id/btnOnboard"
                 android:layout_width="60dp"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center|top"
                 android:layout_margin="10sp"
                 android:background="@drawable/roundbtn"
