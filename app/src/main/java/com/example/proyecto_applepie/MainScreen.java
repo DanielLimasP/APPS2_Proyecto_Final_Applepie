@@ -2,7 +2,9 @@ package com.example.proyecto_applepie;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -21,7 +23,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.zxing.WriterException;
 
+import androidmads.library.qrgenearator.QRGContents;
+import androidmads.library.qrgenearator.QRGEncoder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -36,6 +41,7 @@ public class MainScreen extends AppCompatActivity {
     TextView nameTV;
     Intent onBoardIntent;
     ImageView photoIV;
+    FragmentTransaction ft;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;
 
@@ -44,8 +50,7 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-
-        //Init service
+        // Init service
         Retrofit retrofitClient = RetrofitClient.getInstance();
         iMyService = retrofitClient.create(IMyService.class);
 
@@ -63,7 +68,6 @@ public class MainScreen extends AppCompatActivity {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(MainScreen.this);
         if (acct != null) {
-
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
             String personId = acct.getId();
@@ -71,8 +75,6 @@ public class MainScreen extends AppCompatActivity {
             loginUser(personEmail, personName, personId);
             nameTV.setText(personName);
             Glide.with(this).load(personPhoto).into(photoIV);
-
-
         }
 
         sign_out.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +83,7 @@ public class MainScreen extends AppCompatActivity {
                 signOut();
             }
         });
+
     }
 
     // Signout function
@@ -118,5 +121,32 @@ public class MainScreen extends AppCompatActivity {
     protected void onStop() {
         compositeDisposable.clear();
         super.onStop();
+    }
+
+    public void goToGenerator(View view){
+        final Generator gen = new Generator();
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out);
+        gen.setClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String data = gen.qrEdtTxt.getText().toString();
+
+                QRGEncoder qrgEncoder = new QRGEncoder(data, null, QRGContents.Type.TEXT, 200);
+                try{
+                    Bitmap qrBits = qrgEncoder.encodeAsBitmap();
+                    gen.imgQrDisplay.setImageBitmap(qrBits);
+                }catch(WriterException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        ft.replace(R.id.fragmentLayout, gen);
+        ft.addToBackStack("stack");
+        ft.commit();
+    }
+
+    public void goToReader(View view){
+
     }
 }

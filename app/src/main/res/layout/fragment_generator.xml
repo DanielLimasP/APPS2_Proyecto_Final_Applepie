@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Generator">
+    android:background="@drawable/background2"
+    android:weightSum="10"
+    tools:context=".MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/qrEdtTxt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="3"
+        android:textColor="@color/colorWhite"
+        android:ems="10"
+        android:inputType="number"
+        tools:text="Número" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="30dp"
+        android:layout_weight="3"
+        android:background="@drawable/roundbtn"
+        android:onClick="generateQR"
+        android:text="Generate" />
+
+    <ImageView
+        android:id="@+id/imgQrDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="30dp"
+        app:srcCompat="@color/colorWhite" />
+</LinearLayout>
