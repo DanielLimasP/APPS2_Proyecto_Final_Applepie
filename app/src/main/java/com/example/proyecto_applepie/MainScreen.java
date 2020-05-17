@@ -6,11 +6,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +32,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.zxing.WriterException;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -41,7 +47,7 @@ import retrofit2.Retrofit;
 public class MainScreen extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
-
+    Bitmap qrBits;
     TextView nameTV;
     ImageView photoIV;
     FragmentTransaction ft;
@@ -158,20 +164,44 @@ public class MainScreen extends AppCompatActivity {
         gen.setClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                String data = gen.qrEdtTxt.getText().toString();
 
+                String data = gen.qrEdtTxt.getText().toString();
                 QRGEncoder qrgEncoder = new QRGEncoder(data, null, QRGContents.Type.TEXT, 200);
                 try{
-                    Bitmap qrBits = qrgEncoder.encodeAsBitmap();
+                    qrBits = qrgEncoder.encodeAsBitmap();
                     gen.imgQrDisplay.setImageBitmap(qrBits);
                 }catch(WriterException e){
                     e.printStackTrace();
                 }
+                // Bit to save the qr to the SD card
+                String rootDirectory = Environment.getExternalStorageDirectory().toString();
+                File myDir = new File(rootDirectory + "/saved_qrs");
+                myDir.mkdirs();
+                String fileName = "qrcode_paypal.jpg";
+                File file = new File(myDir, fileName);
+                if(file.exists()) file.delete();
+                try{
+                    FileOutputStream out = new FileOutputStream(file);
+                    // Bitmap line
+                    qrBits.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                    out.flush();
+                    out.close();
+                    Toast.makeText(MainScreen.this, "QR Saved!", Toast.LENGTH_SHORT).show();
+                    sendBroadcast(new Intent(
+                            Intent.ACTION_MEDIA_MOUNTED,
+                            Uri.parse("file://" + Environment.getExternalStorageDirectory())));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
         });
+
+        // Continue with fragment replacement
         ft.replace(R.id.fragLayout, gen);
         ft.addToBackStack("stack");
         ft.commit();
+
     }
 
     public void gotoMain(View view){

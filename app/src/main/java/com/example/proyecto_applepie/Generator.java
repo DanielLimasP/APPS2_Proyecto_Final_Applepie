@@ -2,11 +2,13 @@ package com.example.proyecto_applepie;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +44,14 @@ public class Generator extends Fragment {
         imgQrDisplay = ll.findViewById(R.id.imgQrDisplay);;
         btnGenerate = ll.findViewById(R.id.btnGenerate);
         btnGenerate.setOnClickListener(clickListener);
+
+        // Bit to read an existing QR code from sd card
+        // Important note to developers: If the user has never used the app before,
+        // comment this three lines of code, compile and generate a qr code, then,
+        // uncomment said lines.
+        String imageSD = Environment.getExternalStorageDirectory().getAbsolutePath() + "/saved_qrs/qrcode_paypal.jpg";
+        Bitmap bmap = BitmapFactory.decodeFile(imageSD);
+        imgQrDisplay.setImageBitmap(bmap);
 
         return ll;
     }
