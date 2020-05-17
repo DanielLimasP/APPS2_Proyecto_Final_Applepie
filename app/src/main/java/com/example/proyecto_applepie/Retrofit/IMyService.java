@@ -10,5 +10,6 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> loginUser(@Field("email") String email,
                                   @Field("name") String name,
-                                  @Field("google_id") String google_id);
+                                  @Field("google_id") String google_id,
+                                  @Field("paypalmeLink") String paypalmeLink);
 }

@@ -28,4 +28,11 @@ public class SettingsActivity extends AppCompatActivity {
             setPreferencesFromResource(R.xml.settings_preferences, rootKey);
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

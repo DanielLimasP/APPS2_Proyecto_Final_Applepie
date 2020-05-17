@@ -45,6 +45,14 @@ public class MainScreen extends AppCompatActivity {
     FragmentTransaction ft;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;
+    String personName;
+    String personEmail;
+    String personId;
+    Uri personPhoto;
+
+    Button generatorBtn, mainviewBtn, readerBtn;
+
+    public static GoogleSignInAccount acct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,21 +74,19 @@ public class MainScreen extends AppCompatActivity {
         // Create google sign in client using the options specified at gso
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(MainScreen.this);
+        acct = GoogleSignIn.getLastSignedInAccount(MainScreen.this);
         if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
+            personName = acct.getDisplayName();
+            personEmail = acct.getEmail();
+            personId = acct.getId();
+            personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
-            nameTV.setText(personName);
-            Glide.with(this).load(personPhoto).into(photoIV);
         }
     }
 
     // Signup function that gets called each time the users gets access to the app
     private void loginUser(String email, String name, String google_id) {
-        compositeDisposable.add(iMyService.loginUser(email, name, google_id)
+        compositeDisposable.add(iMyService.loginUser(email, name, google_id, "PayPal.Me Link")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
@@ -106,6 +112,7 @@ public class MainScreen extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Option to go to the settings screen
         if(item.getItemId() == R.id.mnSettings){
             Intent inSettings = new Intent(this, SettingsActivity.class);
             startActivity(inSettings);
@@ -115,6 +122,7 @@ public class MainScreen extends AppCompatActivity {
             Intent onBoardIntent = new Intent(MainScreen.this, OnBoarding.class);
             startActivity(onBoardIntent);
             return true;
+        // Option to logout
         }else if(item.getItemId() == R.id.mnLogout){
             mGoogleSignInClient.signOut()
                     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -125,6 +133,11 @@ public class MainScreen extends AppCompatActivity {
                             finish();
                         }
                     });
+        }else if(item.getItemId() == R.id.mnProfile){
+            Intent profileIntent = new Intent(MainScreen.this, ProfileActivity.class);
+            startActivity(profileIntent);
+            return true;
+            // Option to logout
         }
         return super.onOptionsItemSelected(item);
     }
@@ -133,7 +146,7 @@ public class MainScreen extends AppCompatActivity {
     public void goToGenerator(View view){
         final Generator gen = new Generator();
         ft = getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out);
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         gen.setClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -148,7 +161,7 @@ public class MainScreen extends AppCompatActivity {
                 }
             }
         });
-        ft.replace(R.id.fragmentLayout1, gen);
+        ft.replace(R.id.fragLayout, gen);
         ft.addToBackStack("stack");
         ft.commit();
     }
