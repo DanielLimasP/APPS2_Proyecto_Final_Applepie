@@ -75,6 +75,7 @@ public class MainScreen extends AppCompatActivity {
         photoIV = findViewById(R.id.photo);
         generatorBtn = findViewById(R.id.btnGenerator);
         mainviewBtn = findViewById(R.id.btnMain);
+        readerBtn = findViewById(R.id.btnReader);
 
         // Conf signin options using google email
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -92,6 +93,14 @@ public class MainScreen extends AppCompatActivity {
             personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
         }
+
+        // Set mainview button to selected and other to non-selected
+        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
+        mainviewBtn.setTextColor(Color.WHITE);
+        generatorBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        generatorBtn.setTextColor(Color.parseColor("#181A24"));
+        readerBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        readerBtn.setTextColor(Color.parseColor("#181A24"));
     }
 
     // Signup function that gets called each time the users gets access to the app
@@ -219,6 +228,14 @@ public class MainScreen extends AppCompatActivity {
 
     // Method to access the QR Reader Fragment
     public void goToReader(View view){
+        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        mainviewBtn.setTextColor(Color.parseColor("#181A24"));
+        readerBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
+        readerBtn.setTextColor(Color.WHITE);
+        readerBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        readerBtn.setTextColor(Color.parseColor("#181A24"));
+        Intent readerIntent = new Intent(MainScreen.this, ReaderActivity.class);
+        startActivity(readerIntent);
 
     }
 }

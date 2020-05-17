@@ -49,6 +49,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/roundbtn"
+            android:onClick="goToReader"
             android:text="Reader"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
