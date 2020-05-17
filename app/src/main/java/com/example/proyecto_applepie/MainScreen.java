@@ -2,9 +2,11 @@ package com.example.proyecto_applepie;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -65,6 +67,8 @@ public class MainScreen extends AppCompatActivity {
 
         nameTV = findViewById(R.id.name);
         photoIV = findViewById(R.id.photo);
+        generatorBtn = findViewById(R.id.btnGenerator);
+        mainviewBtn = findViewById(R.id.btnMain);
 
         // Conf signin options using google email
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -144,6 +148,10 @@ public class MainScreen extends AppCompatActivity {
 
     // Method to access the QR Generator Fragment
     public void goToGenerator(View view){
+        generatorBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
+        generatorBtn.setTextColor(Color.WHITE);
+        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        mainviewBtn.setTextColor(Color.parseColor("#181A24"));
         final Generator gen = new Generator();
         ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
@@ -163,6 +171,19 @@ public class MainScreen extends AppCompatActivity {
         });
         ft.replace(R.id.fragLayout, gen);
         ft.addToBackStack("stack");
+        ft.commit();
+    }
+
+    public void gotoMain(View view){
+        generatorBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        generatorBtn.setTextColor(Color.parseColor("#181A24"));
+        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
+        mainviewBtn.setTextColor(Color.WHITE);
+        MainFragment mainFragment = new MainFragment();
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        ft.replace(R.id.fragLayout, mainFragment);
+        ft.addToBackStack(null);
         ft.commit();
     }
 
