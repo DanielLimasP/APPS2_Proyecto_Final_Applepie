@@ -1,5 +1,6 @@
 Paypal.me
 https://paypal.me/daniellimaspp?locale.x=es_XC
+https://paypal.me/daniellimaspp
 
 Client ID
 441937733855-j2078bsossmn09abc6ak2mjt15ijhk0l.apps.googleusercontent.com
