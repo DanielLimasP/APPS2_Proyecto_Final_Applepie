@@ -4,8 +4,11 @@
         android:id="@+id/mnSettings"
         android:title="Settings" />
     <item
-        android:id="@+id/mnProfile"
-        android:title="Profile" />
+        android:id="@+id/mnHistory"
+        android:title="Payment history" />
+    <item
+        android:id="@+id/mnNewLog"
+        android:title="New history log" />
     <item
        android:id="@+id/mnOnboard"
         android:title="OnBoard" />

@@ -28,6 +28,7 @@ public class Generator extends Fragment {
     EditText qrEdtTxt;
     Button btnGenerate;
     ImageView imgQrDisplay;
+    String paypalme = MainScreen.paypalMe;
 
     public Generator() {
         // Required empty public constructor
@@ -44,6 +45,7 @@ public class Generator extends Fragment {
         imgQrDisplay = ll.findViewById(R.id.imgQrDisplay);;
         btnGenerate = ll.findViewById(R.id.btnGenerate);
         btnGenerate.setOnClickListener(clickListener);
+        qrEdtTxt.setText(paypalme);
 
         // Bit to read an existing QR code from sd card
         // Important note to developers: If the user has never used the app before,

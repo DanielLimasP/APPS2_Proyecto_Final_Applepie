@@ -57,6 +57,7 @@ public class MainScreen extends AppCompatActivity {
     String personEmail;
     String personId;
     Uri personPhoto;
+    static String paypalMe = "PayPal.Me";
 
     Button generatorBtn, mainviewBtn, readerBtn;
 
@@ -93,6 +94,8 @@ public class MainScreen extends AppCompatActivity {
             personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
         }
+
+        mainFragmetnLoad();
 
         // Set mainview button to selected and other to non-selected
         mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
@@ -152,12 +155,18 @@ public class MainScreen extends AppCompatActivity {
                             finish();
                         }
                     });
-        }else if(item.getItemId() == R.id.mnProfile){
-            Intent profileIntent = new Intent(MainScreen.this, ProfileActivity.class);
-            startActivity(profileIntent);
+        }else if(item.getItemId() == R.id.mnHistory){
+            Intent inHistory = new Intent(MainScreen.this, HistoryActivity.class);
+            startActivity(inHistory);
+            return true;
+            // Option to logout
+        }else if(item.getItemId() == R.id.mnNewLog){
+            Intent inNewLog = new Intent(MainScreen.this, NewLogActivity.class);
+            startActivity(inNewLog);
             return true;
             // Option to logout
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -214,16 +223,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     public void gotoMain(View view){
-        generatorBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
-        generatorBtn.setTextColor(Color.parseColor("#181A24"));
-        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
-        mainviewBtn.setTextColor(Color.WHITE);
-        MainFragment mainFragment = new MainFragment();
-        ft = getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        ft.replace(R.id.fragLayout, mainFragment);
-        ft.addToBackStack(null);
-        ft.commit();
+        mainFragmetnLoad();
     }
 
     // Method to access the QR Reader Fragment
@@ -236,6 +236,29 @@ public class MainScreen extends AppCompatActivity {
         readerBtn.setTextColor(Color.parseColor("#181A24"));
         Intent readerIntent = new Intent(MainScreen.this, ReaderActivity.class);
         startActivity(readerIntent);
+    }
 
+    public void mainFragmetnLoad(){
+        generatorBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtn));
+        generatorBtn.setTextColor(Color.parseColor("#181A24"));
+        mainviewBtn.setBackground(ContextCompat.getDrawable(MainScreen.this, R.drawable.roundbtnselected));
+        mainviewBtn.setTextColor(Color.WHITE);
+        MainFragment mainFragment = new MainFragment();
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        mainFragment.setClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inSettings = new Intent(MainScreen.this, SettingsActivity.class);
+                startActivity(inSettings);
+            }
+        });
+
+        ft.replace(R.id.fragLayout, mainFragment);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
+
+
+

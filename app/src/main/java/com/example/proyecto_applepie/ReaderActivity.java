@@ -32,6 +32,8 @@ public class ReaderActivity extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+    static String paypalmeLink;
+    static String url;
     String token = "";
     String tokenanterior = "";
 
@@ -114,7 +116,11 @@ public class ReaderActivity extends AppCompatActivity {
                         tokenanterior = token;
                         Log.i("token", token);
 
-                        String url = "https://" + token;
+                        Toast.makeText(ReaderActivity.this, token, Toast.LENGTH_SHORT).show();
+
+                        paypalmeLink = token;
+
+                        url = "https://" + token;
 
                         if (URLUtil.isValidUrl(url)) {
                             // If token is a valid URL then it opens the browser
