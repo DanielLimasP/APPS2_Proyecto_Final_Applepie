@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true})); //url parameters
 
 //Routes
 app.use(require('./routes/users'))
+app.use(require('./routes/logs'))
 
 //Server Initialize
 app.listen(app.get('port'), ()=>{

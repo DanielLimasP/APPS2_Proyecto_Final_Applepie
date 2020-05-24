@@ -1,6 +1,6 @@
 String de conexion: 
 
-mongodb+srv://danyl:VEtqUdOCqqWXRR14@cluster0-ezqai.mongodb.net/test?retryWrites=true&w=majority
+mongodb+srv://dep:dep@cluster0-ezqai.mongodb.net/test?retryWrites=true&w=majority
 
-user: danyl
-pass: VEtqUdOCqqWXRR14
+user: dep
+pass: dep

@@ -1,23 +1,25 @@
+This info, as of now, is deprecated...
+
 qr-app-2
 
 Sandbox account:
-sb-rwn291569136@personal.example.com ---> Client
-sb-miveo1577166@business.example.com ---> Merchant
+sb-rwn2e156anmasdd9112336@personal.example.com ---> Client
+sb-miveo1e2257aqkasha7166@business.example.com ---> Merchant
 
 An Access token:
-access_token$sandbox$z7sj8ydg8zp2pz22$b19fac7e010f58ee14f02c3b3ce957f9
+access_token$sandbox$z7sj8ydg8fzp2pz2d2$4b19afascw73ee01aq0f5eq28ree14tf021c3b3ce957f9
 
 Client account:
 Client ID:
-	Abq-5PUDnOcgIbW_CrLqnwN2IVFf5Nzh5XVY_WIKb2itTAa4GtZ0diUUzCVIqzcK3NhXUJIFypO5SK-3-
+	Abq-52PUD331nOcgIb3W_CrLqnwN32IVFf5Nzh5X3vVfY_WaIKb24sit5TAda142GtZ03d4iUUz5CVIqzcK3NhXUJIFypO5SK-3-
 Secret:
-	EGe0vYDAaziSuGXofoxUA2eAZqAy6rV39nPLunI9LqOzyKMxIWWOzqWHaQRxwuDJaAVU1vxi9O-K4474
+	EGe0vYDAaziSuqGtXofoxUA2eAZqdaAuy6rV3d9nPsLuondI9LqOzyKdMxIhWWOzqWHaQRxwuDJaAVU1vxi9O-K4474
 
 Merchant account:
 Client ID:
-	AVyuco_-Jtq4L_0gwxOdveN8pY54REgACDQRz0DYDVBtt3YbKeyl96G8hmgzz7OIV9XhOIZSIry3geal
+	AVyuco_-Jtq4L_0gwxrOdeveN8pY5dep4REgACDdqepQwRza0DYDVBdtt3YbKetyl96Gdettp8hmgzz7OIV9XhOIZdepSIry3geal
 Secret:
-	EH7CMrlK2_STQUXIIvtl2-dgRuE_C3TRB_XdVNyhyTNtZrdLuVzWowVA-xJ13-mw-x5E4aXk2gSlH32T
+	EH7CMrlK2_STQUXIIvtl2-dgRuE_C3TdepRB_XdVdepNyhyTNtZrbbdLuVabjzWopwVdepA-uxJ13-mwa-x5Ewy4aqk2geStlH32T
 
 Access Token (Could get deprecated):
 -Get it calling this URL
