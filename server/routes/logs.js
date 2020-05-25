@@ -21,9 +21,7 @@ router.post('/getlogs/', (req, res) => {
     LogModel.find({userEmail: req.body.queryparam}).exec()
     .then((concepts)=>{
         logsConcepts = concepts
-        return LogModel.count()
-    }).then((total)=>{
-        res.status(200).send({total: total, reqLogs: logsConcepts.length, logs: logsConcepts})
+        res.status(200).send({logs: logsConcepts})
     }).catch((err)=>{
         res.status(500).send({ message: `Error in the request ${err}` })
     })
