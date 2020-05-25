@@ -31,16 +31,11 @@ public class HistoryActivity extends AppCompatActivity {
 
         logList = findViewById(R.id.logList);
 
-        JSONArray jsonObject = new JSONArray();
-        try {
-            jsonObject.put("queryparam", MainScreen.personEmail);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        // getLogs request with volley *Stupid Volley*
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
-                Request.Method.POST,
+                Request.Method.GET,
                 "http://34f3c2a3.ngrok.io/getlogs/",
-                jsonObject,
+                null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -67,13 +62,5 @@ public class HistoryActivity extends AppCompatActivity {
                 }
         );
         Volley.newRequestQueue(this).add(jsonArrayRequest);
-
-
-
-
-        // getLogs request with volley
-
-
     }
-
 }
