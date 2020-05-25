@@ -1,8 +1,13 @@
 package com.example.proyecto_applepie;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,6 +17,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,5 +69,34 @@ public class HistoryActivity extends AppCompatActivity {
                 }
         );
         Volley.newRequestQueue(this).add(jsonArrayRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.settings_menu_history, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Option to go to the settings screen
+        if(item.getItemId() == R.id.mnSettings){
+            Intent inSettings = new Intent(this, SettingsActivity.class);
+            startActivity(inSettings);
+            return true;
+            // Option to launch onboard screen from the settings menu
+        }else if(item.getItemId() == R.id.mnOnboard){
+            Intent onBoardIntent = new Intent(this, OnBoarding.class);
+            startActivity(onBoardIntent);
+            return true;
+        }else if(item.getItemId() == R.id.mnNewLog){
+            Intent inNewLog = new Intent(this, NewLogActivity.class);
+            startActivity(inNewLog);
+            return true;
+            // Option to logout
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

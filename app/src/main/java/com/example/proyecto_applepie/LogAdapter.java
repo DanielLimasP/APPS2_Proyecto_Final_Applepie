@@ -30,6 +30,8 @@ public class LogAdapter extends ArrayAdapter<JSONObject> {
         this.context = context;
         this.resource = resource;
         this.objects = objects;
+
+
     }
 
     @NonNull
@@ -51,7 +53,6 @@ public class LogAdapter extends ArrayAdapter<JSONObject> {
 
         Random r = new Random();
         int imageInt = r.nextInt(10);
-
         switch(imageInt){
             case 1:
                 image.setImageResource(R.drawable.user);

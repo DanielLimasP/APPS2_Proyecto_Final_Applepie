@@ -32,7 +32,7 @@ public class ReaderActivity extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
-    static String paypalmeLink;
+    static String paypalmeLink = null;
     static String url;
     String token = "";
     String tokenanterior = "";

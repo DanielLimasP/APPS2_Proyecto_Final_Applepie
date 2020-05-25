@@ -1,10 +1,13 @@
 package com.example.proyecto_applepie;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -20,6 +23,9 @@ public class SettingsActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        Toast.makeText(this, sp.getString("edit_text_preference_1", "xx"), Toast.LENGTH_SHORT).show();
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {

@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceManager;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -57,6 +59,7 @@ public class MainScreen extends AppCompatActivity {
     static String personEmail;
     String personId;
     Uri personPhoto;
+
     static String paypalMe = "PayPal.Me";
 
     Button generatorBtn, mainviewBtn, readerBtn;
@@ -71,6 +74,9 @@ public class MainScreen extends AppCompatActivity {
         // Init service
         Retrofit retrofitClient = RetrofitClient.getInstance();
         iMyService = retrofitClient.create(IMyService.class);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        paypalMe = preferences.getString("edit_text_preference_1", "xx");
 
         nameTV = findViewById(R.id.name);
         photoIV = findViewById(R.id.photo);

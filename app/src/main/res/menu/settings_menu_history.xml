@@ -4,15 +4,9 @@
         android:id="@+id/mnSettings"
         android:title="Settings" />
     <item
-        android:id="@+id/mnHistory"
-        android:title="Payment history log" />
-    <item
         android:id="@+id/mnNewLog"
         android:title="New log" />
     <item
-       android:id="@+id/mnOnboard"
+        android:id="@+id/mnOnboard"
         android:title="Tutorial" />
-    <item
-        android:id="@+id/mnLogout"
-        android:title="Logout" />
 </menu>
