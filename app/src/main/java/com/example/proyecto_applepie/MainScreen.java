@@ -54,7 +54,7 @@ public class MainScreen extends AppCompatActivity {
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;
     String personName;
-    String personEmail;
+    static String personEmail;
     String personId;
     Uri personPhoto;
     static String paypalMe = "PayPal.Me";

@@ -16,9 +16,9 @@ router.post('/uploadlog/', (req, res) => {
     console.log('Log created')
 })
 
-router.post('/getlogs/', (req, res) => {
+router.get('/getlogs/', (req, res) => {
     let logsConcepts = null
-    LogModel.find({userEmail: req.body.queryparam}).exec()
+    LogModel.find().exec()
     .then((concepts)=>{
         logsConcepts = concepts
         res.status(200).send(logsConcepts)

@@ -45,12 +45,12 @@ public class LogAdapter extends ArrayAdapter<JSONObject> {
 
         concept = convertView.findViewById(R.id.logConcept);
         amount = convertView.findViewById(R.id.logAmount);
-        amount = convertView.findViewById(R.id.logPaypalme);
-        image = convertView.findViewById(R.id.logImg);
+        paypalme = convertView.findViewById(R.id.logPaypalme);
 
         try {
-            name.setText(objects.get(position).getString("first_name"));
-            lastname.setText(objects.get(position).getString("last_name"));
+            concept.setText(objects.get(position).getString("concept"));
+            amount.setText(objects.get(position).getString("amount"));
+            paypalme.setText(objects.get(position).getString("paypalme"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
