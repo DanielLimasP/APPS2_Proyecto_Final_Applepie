@@ -85,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if(account != null) {
             startActivity(new Intent(MainActivity.this, MainScreen.class));
+        }else{
+            // No need for an else statement, but who cares
+            startActivity(new Intent(MainActivity.this, MainScreen.class));
         }
         super.onStart();
     }

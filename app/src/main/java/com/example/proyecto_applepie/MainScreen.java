@@ -99,7 +99,14 @@ public class MainScreen extends AppCompatActivity {
             personId = acct.getId();
             personPhoto = acct.getPhotoUrl();
             loginUser(personEmail, personName, personId);
+        }else{
+            personName = "Test User";
+            personEmail = "test@user.com";
+            personId = "testUserId";
+            personPhoto =  Uri.parse("https://personphoto.com");
+            loginUser(personEmail, personName, personId);
         }
+
 
         mainFragmetnLoad();
 

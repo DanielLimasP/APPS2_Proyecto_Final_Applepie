@@ -13,9 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e420d5eb-370f-421b-93ca-beba62200f85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/OnBoarding.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/OnBoarding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/SliderAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/SliderAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="4LSSMZBQ99999999" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_27" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -71,13 +71,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-561">
+              <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+              <folding>
+                <element signature="method#onStop#0;class#MainScreen#0" />
+              </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="89" column="75" selection-start-line="89" selection-start-column="75" selection-end-line="89" selection-end-column="75" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -124,7 +135,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/Reader.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reader.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/Retrofit/RetrofitClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainFragment.java" />
@@ -141,10 +151,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/NewLogActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/OnBoarding.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/SliderAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java" />
       </list>
     </option>
   </component>
@@ -159,6 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -177,24 +190,11 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="proyecto_applepie" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Proyecto_Applepie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Proyecto_Applepie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,7 +336,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4982079" visible="true" weight="0.16033435" />
@@ -355,7 +354,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32872504" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.30721965" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.40552995" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -462,13 +461,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/ProfileFragment.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/ProfileActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="84" column="77" selection-start-line="84" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest" />
@@ -618,16 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="method#onStop#0;class#MainScreen#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/OnBoarding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -682,11 +664,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/slide_layout.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="493">
           <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="89" column="75" selection-start-line="89" selection-start-column="75" selection-end-line="89" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/proyecto_applepie/MainScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+          <folding>
+            <element signature="method#onStop#0;class#MainScreen#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
