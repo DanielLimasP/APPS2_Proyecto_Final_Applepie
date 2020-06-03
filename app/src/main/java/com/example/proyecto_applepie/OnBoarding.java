@@ -62,7 +62,7 @@ public class OnBoarding extends AppCompatActivity {
 
     public void addDotsIndicator(int position){
 
-        dots = new TextView[3];
+        dots = new TextView[6];
         mDotLayout.removeAllViews();
 
         for(int i = 0; i < dots.length; i++){

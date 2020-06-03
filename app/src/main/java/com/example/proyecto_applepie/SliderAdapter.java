@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,19 +24,29 @@ public class SliderAdapter extends PagerAdapter {
     public int[] slide_images = {
             R.drawable.andromeda,
             R.drawable.comet,
-            R.drawable.abduction
+            R.drawable.abduction,
+            R.drawable.alien,
+            R.drawable.planets,
+            R.drawable.pplogobig
     };
 
     public String[] slide_headings = {
-            "EAT",
-            "SLEEP",
-            "CODE"
+            "Bienvenido a  PayPalQR",
+            "¿Cómo configuro PayPal.Me?",
+            "Busca PayPal.Me dentro de la configuración de tu cuenta",
+            "Sigue los pasos dentro de PayPal",
+            "Tu link dentro de la aplicación",
+            "Genera y recibe, escanea y paga"
+
     };
 
     public String[] slide_descriptions = {
-            "Lorem",
-            "Ipsum",
-            "Dolor"
+            "La aplicación que te ayudara a realizar pagos con PayPal en establecimientos pequeños",
+            "Para empezar la configuración de la aplicación, empieza yendo a tu cuenta de PayPal",
+            "Ahora entra en 'configuración' y busca la sección de PayPal.Me",
+            "Sigue los pasos y configura tu cuenta personal de PayPal.Me",
+            "Una vez terminada la configuración de tu cuenta, dentro de PayPalQR, entra en la sección de configuración y pega tu link",
+            "Genera tu código QR y has o recibe pagos por PayPal de una manera más sencilla."
     };
 
     @Override
@@ -45,7 +56,7 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (RelativeLayout) object;
+        return view == (LinearLayout) object;
     }
 
     public Object instantiateItem(ViewGroup container, int position){
@@ -67,6 +78,6 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((RelativeLayout) object);
+        container.removeView((LinearLayout) object);
     }
 }
